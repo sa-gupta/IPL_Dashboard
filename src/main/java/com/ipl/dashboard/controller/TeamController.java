@@ -50,10 +50,14 @@ public class TeamController {
 	public List<Match> getMatchesForTeam(@PathVariable String teamName, @RequestParam int year){
 		LocalDate startDate = LocalDate.of(year, 1, 1);
 		LocalDate endDate = LocalDate.of(year+1, 1, 1);
-		return mRepo.getByTeam1AndDateBetweenOrTeam2AndDateBetweenOrderByDateDesc(
-				teamName, startDate, endDate,
-				teamName, startDate, endDate
-				);	
+		return mRepo.getMatchesByTeamBetweenDates(teamName, startDate, endDate);
+		
+		// Below method will give same output as above.
+		// but the only difference is below method is jpa way of writing method as well as query.
+//		return mRepo.getByTeam1AndDateBetweenOrTeam2AndDateBetweenOrderByDateDesc(
+//				teamName, startDate, endDate,
+//				teamName, startDate, endDate 
+//				);	
 	}
 	
 }
