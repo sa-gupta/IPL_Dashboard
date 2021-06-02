@@ -1,0 +1,10 @@
+.TeamTile{
+    text-align: center;
+    height: 120px;
+    border: 1px solid white;
+    
+    & > h1 {
+        
+        padding-top: 40px;
+    }
+}
