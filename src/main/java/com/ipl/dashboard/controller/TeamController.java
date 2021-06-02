@@ -58,6 +58,15 @@ public class TeamController {
 		LocalDate startDate = LocalDate.of(year, 1, 1);
 		LocalDate endDate = LocalDate.of(year+1, 1, 1);
 		return mRepo.getMatchesByTeamBetweenDates(teamName, startDate, endDate);
+	} 
+	
+	@GetMapping("/team/{teamName}/activeYears")
+	public List<Integer> getTeamActiveYears(@PathVariable String teamName){
+		return mRepo.getTeamActiveYears(teamName);
+		
+//		return null;
+	}
+	
 		
 		// Below method will give same output as above.
 		// but the only difference is below method is jpa way of writing method as well as query.
@@ -65,6 +74,5 @@ public class TeamController {
 //				teamName, startDate, endDate,
 //				teamName, startDate, endDate 
 //				);	
-	}
 	
 }
